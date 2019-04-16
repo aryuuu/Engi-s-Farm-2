@@ -1,9 +1,9 @@
 package com.map;
 
 /**
- * file Well.java
+ * file Truck.java
  * <p>
- *     Kelas Well merepresentasikan Sumur
+ *     Kelas Truck merepresentasikan Truk
  * </p>
  *
  * @author Naufal Zhafran Latif / 13517095
@@ -13,16 +13,16 @@ package com.map;
  * @since 2019-04-15
  */
 
-public class Well extends Cell {
+public class Truck extends Cell {
 
     /**
-     * Konstruktor dari kelas Well
+     * Konstruktor dari kelas Truck
      *
      * @param x posisi x dari well
      * @param y posisi y dari well
      */
-    public Well(int x, int y) {
-        super(x, y, "Well");
+    public Truck(int x, int y) {
+        super(x, y, "Truck");
     }
 
     /**
@@ -31,6 +31,7 @@ public class Well extends Cell {
      */
     @Override
     public void print() {
-        System.out.println("W");
+        System.out.println("T");
     }
+
 }
