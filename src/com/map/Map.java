@@ -1,6 +1,6 @@
 package com.map;
 
-import java.util.Vector;
+import java.util.*;
 
 public class Map{
 

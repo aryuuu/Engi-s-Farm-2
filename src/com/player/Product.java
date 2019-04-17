@@ -42,6 +42,13 @@ public class Product{
 		 *@method ini mengembalikan true jika objek memiliki
 		 * nama yang sama dengan p
 		*/
+	public void setNama(String nama) {
+		this.nama = nama;
+	}
+	public void setHarga(int harga) {
+		this.harga = harga;
+	}
+
 	public boolean samaDengan(Product p){
 		return this.nama == p.getNama();
 	}

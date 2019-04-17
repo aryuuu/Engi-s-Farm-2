@@ -4,7 +4,7 @@ public class Player{
     private int water;
     private int money;
     private int x,y;
-    private LinkedList<Product> bag;
+    private Linkedlist<Product> bag;
     private static final int MAXWATER=25;
     private static final int MAXBAG=25;
     public Player(){
@@ -30,7 +30,7 @@ public class Player{
     {
         return y;
     }
-    public product getBag(int idx)////mengambil Product yang ada dalam LinkedList Bag pada indeks idx
+    public Product getBag(int idx)////mengambil Product yang ada dalam LinkedList Bag pada indeks idx
     {
         return bag.get(idx);
     }
@@ -75,9 +75,7 @@ public class Player{
     }
     public void delProduct(String NamaProduct) //Menghapus product dari bag dengan parameter input NamaProduct
     {
-        Product cari;
-        cari.setNama(NamaProduct);
-        cari.setHarga(-1);
+        Product cari = new Product(NamaProduct,0);
         bag.remove(cari);
     }
     public void delProductAll() //Mengosongkan Bag
@@ -108,7 +106,7 @@ public class Player{
         if (Prod=="ButtermilkChicken"){
             //periksa apakah ButtermilChicken bisa dibuat
             if(this.isAvailable(Prod)){
-                ButtermilkChicken X;
+                ButtermilkChicken X = new ButtermilkChicken();
                 idxResep = 0;
                 while(idxResep < X.getNResep()){ //hapus bahan dari inventori
                     this.delProduct(X.getResep(idxResep));
@@ -122,7 +120,7 @@ public class Player{
 
         } else if (Prod=="Omellete"){
             if(this.isAvailable(Prod)){
-                Omellete X;
+                Omellete X = new Omellete();
                 idxResep = 0;
                 while(idxResep < X.getNResep()){ //hapus bahan dari inventori
                     this.delProduct(X.getResep(idxResep));
@@ -135,7 +133,7 @@ public class Player{
             }
         } else if (Prod=="Meatball"){
             if(this.isAvailable(Prod)){
-                Meatball X;
+                Meatball X = new Meatball();
                 idxResep = 0;
                 while(idxResep < X.getNResep()){ //hapus bahan dari inventori
                     this.delProduct(X.getResep(idxResep));
@@ -147,25 +145,25 @@ public class Player{
                 System.out.println("Tidak cukup bahan");
             }
         } else if (Prod=="ChickenEgg"){
-            ChickenEgg X;
+            ChickenEgg X = new ChickenEgg();
             this.addProduct(X);
         } else if (Prod=="ChickenMeat"){
-            ChickenMeat X;
+            ChickenMeat X = new ChickenMeat();
             this.addProduct(X);
         } else if (Prod=="CowMeat"){
-            CowMeat X;
+            CowMeat X = new CowMeat();
             this.addProduct(X);
         } else if (Prod=="CowMilk"){
-            CowMilk X;
+            CowMilk X = new CowMilk();
             this.addProduct(X);
         } else if (Prod=="DuckEgg"){
-            DuckEgg X;
+            DuckEgg X = new DuckEgg();
             this.addProduct(X);
         } else if (Prod=="HorseMilk"){
-            HorseMilk X;
+            HorseMilk X = new HorseMilk();
             this.addProduct(X);
         } else if (Prod=="RabbitMeat"){
-            RabbitMeat X;
+            RabbitMeat X = new RabbitMeat();
             this.addProduct(X);
         };
     }
@@ -185,7 +183,7 @@ public class Player{
     public boolean isAvailable(String productname) //mengembalikan true jika SideProduct dengan nama productname bisa dibuat dengan inventori sekarang, false jika tidak
     {
         if(productname == "ButtermilkChicken"){
-            ButtermilkChicken bmc;
+            ButtermilkChicken bmc = new ButtermilkChicken();
             int idxResep = 0;
             int idxbag;
             // int count = 0; //hitung jumlah bahan resep yang sudah ditemukan
@@ -211,7 +209,7 @@ public class Player{
             return true;
 
         } else if(productname == "Omellete"){
-            Omellete om;
+            Omellete om= new Omellete();
             int idxResep = 0;
             int idxbag;
             // int count = 0; //hitung jumlah bahan resep yang sudah ditemukan
@@ -237,11 +235,11 @@ public class Player{
             return true;
 
         } else if(productname == "Meatball"){
-            Meatball mb;
+            Meatball mb = new Meatball();
             int idxResep = 0;
             int idxbag;
             // int count = 0; //hitung jumlah bahan resep yang sudah ditemukan
-            boolean found; //flag yang bernilai true jika bahan ditemukan
+            boolean found = false; //flag yang bernilai true jika bahan ditemukan
             while(idxResep < mb.getNResep() && !found){
                 idxbag = 1;
                 found = false;//inisialisasi
