@@ -17,19 +17,26 @@ public class ButtermilkChicken extends Product implements SideProduct{
 	 * nama bahan yang dibutuhkan untuk membuat 
 	 * produk ini
 	*/
-	private String resep[2] = {"ChickenMeat", "CowMilk"};
+	private String resep[] = {"ChickenMeat", "CowMilk"};
 	/**
 	 *@method ini tidak menerima argumen apapun
 	 *@method ini mengembalikan jumlah bahan 
 	 * yang dibutukan untuk membuat produk ini
 	*/
-	public int getNResep();
+	public int getNResep()
+	{
+		return nResep;
+	}
 	/**
 	 *@method ini menerima satu argumen integer i, integer yang merupakan index bahan
 	 * yang terdapat pada array nama bahan
 	 *@method ini mengembalikan nama bahan yang terdapat di index ke-i
 	*/
-	public String getResep(int i);
+	public String getResep(int i)
+	{
+		assert(i >= 0 && i < nResep);
+		return (resep[i]);
+	}
 
 	public ButtermilkChicken(){
 		super("ButtermilkChicken", 45000);

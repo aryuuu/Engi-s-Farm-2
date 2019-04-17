@@ -11,7 +11,7 @@ public class ChickenMeat extends Product {
 	 *
 	 *@Konstruktor ini tidak menerima argumen apapun
 	*/
-	public ChickenMear(){
+	public ChickenMeat(){
 		super("ChickenMeat", 25000);
 	}
 }
