@@ -1,5 +1,6 @@
 package com.animal;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 // Tipe komentar di sini jangan ditiru
@@ -10,6 +11,9 @@ public class AnimalContainerTest
 {
     public static void main (String[] args)
     {
+        AnimalContainer animal2 = new AnimalContainer("farmAnimals.txt");
+        animal2.printAnimals();
+
         // Create the chicken
         Chicken test1 = new Chicken(1, 2);
         Cow test2 = new Cow(2, 3);

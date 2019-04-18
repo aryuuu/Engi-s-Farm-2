@@ -1,6 +1,11 @@
 package com.animal;
 
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.FileNotFoundException;;
 
 /**
  * file AnimalContainer.java
@@ -36,6 +41,90 @@ public class AnimalContainer
     public AnimalContainer()
     {
         animals = new ArrayList<Animal>();
+    }
+
+    /**
+     * Konstruktor berparameter dari kelas AnimalContainer
+     * 
+     * <p>
+     *    Membuat ArrayList of animal baru yang menyimpan data setiap animal yang masih hidup dalam sebuah farm
+     * </p>
+     * 
+     * @throws FileNotFoundException jika file eksternal tidak dapat dibaca
+     * @throws IOException jika line pada file eksternal tidak valid
+     */
+    public AnimalContainer(String filename)
+    {
+        animals = new ArrayList<Animal>();
+
+        try {
+            File file = new File (filename);
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] linePart = line.split(" ");
+                
+                if (linePart[0].equals("Chicken"))
+                {
+                    int x = Integer.parseInt(linePart[1]);
+                    int y = Integer.parseInt(linePart[2]);
+                    Chicken a = new Chicken(x, y);
+                    animals.add(a);
+                }
+                else if (linePart[0].equals("Cow"))
+                {
+                    int x = Integer.parseInt(linePart[1]);
+                    int y = Integer.parseInt(linePart[2]);
+                    Cow a = new Cow(x, y);
+                    animals.add(a);
+                }
+                else if (linePart[0].equals("Duck"))
+                {
+                    int x = Integer.parseInt(linePart[1]);
+                    int y = Integer.parseInt(linePart[2]);
+                    Duck a = new Duck(x, y);
+                    animals.add(a);
+                }
+                else if (linePart[0].equals("Goat"))
+                {
+                    int x = Integer.parseInt(linePart[1]);
+                    int y = Integer.parseInt(linePart[2]);
+                    Goat a = new Goat(x, y);
+                    animals.add(a);
+                }
+                else if (linePart[0].equals("Horse"))
+                {
+                    int x = Integer.parseInt(linePart[1]);
+                    int y = Integer.parseInt(linePart[2]);
+                    Horse a = new Horse(x, y);
+                    animals.add(a);
+                }
+                else if (linePart[0].equals("Rabbit"))
+                {
+                    int x = Integer.parseInt(linePart[1]);
+                    int y = Integer.parseInt(linePart[2]);
+                    Rabbit a = new Rabbit(x, y);
+                    animals.add(a);
+                }
+                else {
+                    System.out.println("Animal tidak terdaftar -> nama dari file: " + linePart[0]);
+                }
+            }
+            
+            fileReader.close();
+                     
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File tidak ditemukan");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Isi file tidak berguna");
+            e.printStackTrace();
+        }
+
+        
     }
 
     // Getter-setter
