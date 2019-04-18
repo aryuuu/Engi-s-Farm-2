@@ -31,7 +31,7 @@ public class Truck extends Cell {
      */
     @Override
     public void print() {
-        System.out.println("T");
+        System.out.print("T");
     }
 
 }

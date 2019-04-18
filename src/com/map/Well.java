@@ -31,6 +31,6 @@ public class Well extends Cell {
      */
     @Override
     public void print() {
-        System.out.println("W");
+        System.out.print("W");
     }
 }

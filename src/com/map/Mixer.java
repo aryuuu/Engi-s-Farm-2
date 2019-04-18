@@ -31,7 +31,7 @@ public class Mixer extends Cell {
      */
     @Override
     public void print() {
-        System.out.println("M");
+        System.out.print("M");
     }
 
 }
