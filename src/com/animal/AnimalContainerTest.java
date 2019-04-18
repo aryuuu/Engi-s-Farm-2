@@ -41,10 +41,10 @@ public class AnimalContainerTest
         animals.removeAnimal(test2);
         animals.removeAnimal(test5);
         animals.printAnimals();
-        System.out.println("Near (2, 2): " + animals.animalNear(new Position(2, 2)));
-        System.out.println("On (1, 2): " + animals.animalOn(new Position(1, 2)));
-        System.out.println("Near (10, 10): " + animals.animalNear(new Position(10, 10)));
-        System.out.println("On (3, 2): " + animals.animalOn(new Position(3, 2)));
+        System.out.println("Near (2, 2): " + animals.animalNear(2, 2));
+        System.out.println("On (1, 2): " + animals.animalOn(1, 2));
+        System.out.println("Near (10, 10): " + animals.animalNear(10, 10));
+        System.out.println("On (3, 2): " + animals.animalOn(3, 2));
 
 
         System.out.println("Tester ends...");
