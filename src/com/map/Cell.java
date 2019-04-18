@@ -106,4 +106,10 @@ public abstract class Cell {
      *
      */
     abstract public void print();
+
+
+    // Dummy method
+    // Di-overwrite dengan method di land
+    public void setGrass(boolean grass){};
+    public boolean isGrass(){return false;}
 }

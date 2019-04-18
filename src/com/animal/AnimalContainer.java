@@ -50,8 +50,8 @@ public class AnimalContainer
      *    Membuat ArrayList of animal baru yang menyimpan data setiap animal yang masih hidup dalam sebuah farm
      * </p>
      * 
-     * @throws FileNotFoundException jika file eksternal tidak dapat dibaca
-     * @throws IOException jika line pada file eksternal tidak valid
+     * @exception FileNotFoundException jika file eksternal tidak dapat dibaca
+     * @exception IOException jika line pada file eksternal tidak valid
      */
     public AnimalContainer(String filename)
     {
@@ -182,11 +182,13 @@ public class AnimalContainer
 
     /**
      * Mengecek animal jika terdapat dalam posisi tersebut
-     * @param pos - Posisi yang ingin dicek
+     * @param x - Baris yang ingin dicek
+     * @param y - Kolom yang ingin dicek
      * @return - Indeks dari animal di posisi tersebut, -1 jika tidak ada
      */
-    public int animalOn(Position pos)
+    public int animalOn(int x, int y)
     {
+        Position pos = new Position(x, y);
         boolean found = false;
         int i = 0;
         while (i < animals.size() && !found)
@@ -210,11 +212,14 @@ public class AnimalContainer
 
     /**
      * Mengecek animal jika terdapat dekat dengan posisi tersebut (atas, bawah, kiri, atau kanan)
-     * @param pos - Posisi yang ingin dicek
+     * @param x - Baris yang ingin dicek
+     * @param y - Kolom yang ingin dicek
      * @return - Indeks dari animal di posisi tersebut, -1 jika tidak ada
      */
-    public int animalNear(Position pos)
+    public int animalNear(int x, int y)
     {
+        Position pos = new Position(x, y);
+
         boolean found = false;
         int i = 0;
         while (i < animals.size() && !found)

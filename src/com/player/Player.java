@@ -1,12 +1,19 @@
 package com.player;
 import java.lang.String;
 public class Player{
+
+    // Atribut
     private int water;
     private int money;
     private int x,y;
     private Linkedlist<Product> bag;
     private static final int MAXWATER=25;
     private static final int MAXBAG=25;
+
+    // Method
+
+    // Kontruktor
+
     public Player(){
         setMoney(0);
         setWater(0);
@@ -14,43 +21,55 @@ public class Player{
         setY(0);
         delProductAll();
     }
+
+    // Getter
+
     public int getWater() //mengambil atribut water
     {
         return water;
+    
     }
     public int getMoney()//mengambil atribut money
     {
         return money;
     }
+
     public int getX()//mengambil atribut x (posisi Absis player)
     {
         return x;
     }
+    
     public int getY()//mengambil atribut y (posisi Ordinat player)
     {
         return y;
     }
+
     public Product getBag(int idx)////mengambil Product yang ada dalam LinkedList Bag pada indeks idx
     {
         return bag.get(idx);
     }
+
     public int getSizeBag() //Menghitung ukuran tas
     {
         return bag.size();
     }
+
     //setter
     public void setWater(int water) //mengubah nilai atribut water
     {
         this.water=water;
     }
+
     public void setMoney(int money) //mengubah nilai atribut money
     {
         this.money=money;
     }
+
     public void setX(int x) //mengubah nilai atribut x (posisi Absis player)
     {
         this.x=x;
     }
+
     public void setY(int y)//mengubah nilai atribut y (posisi Ordinat player)
     {
         this.y=y;
@@ -61,6 +80,7 @@ public class Player{
         this.delProduct(bag.get(idx).getNama());
         this.addProduct(prod);
     }
+
     public void playerMove(char move) //Memindahkan posisi player ke atas / kanan / bawah / kiri dengan parameter input charr u/r/d/l dan posisi harus valid (harus divalidasi dulu)
     {
         if(move=='l'){
@@ -73,11 +93,13 @@ public class Player{
             x+=1;
         }
     }
+
     public void delProduct(String NamaProduct) //Menghapus product dari bag dengan parameter input NamaProduct
     {
         Product cari = new Product(NamaProduct,0);
         bag.remove(cari);
     }
+
     public void delProductAll() //Mengosongkan Bag
     {
         int harga=0;
@@ -88,18 +110,21 @@ public class Player{
         this.addMoney(harga);
 
     }
+
     public void reduceWater() //Mengkurangi atribut water yang ada didalam gebor (Alat penyiraman)
     {
         water-=1;
     }
+
     public void addProduct(Product Prod) //Menambahkan Product Prod ke Bag dan ditaruh di paling belakang
     {
         if (this.getSizeBag()<MAXBAG){
         bag.add(Prod);
-    }else{
-        System.out.println("Tas Penuh");
+        }else{
+            System.out.println("Tas Penuh");
+        }
     }
-    }
+
     public void addProduct(String Prod) //Menambahkan Nama Product Prod ke Bag dan ditaruh di paling belakang
     {
         int idxResep;
@@ -273,13 +298,14 @@ public class Player{
         System.out.print("Water	: ");
         System.out.print(this.getWater());
         System.out.print("bag	: ");
+        
         for(int i=1;i<=this.getSizeBag();i++){
-        System.out.println(this.getBag(i).getNama());
-        if(i!=this.getSizeBag()){
-            System.out.print(", ");
-        }else{
-            System.out.println();
+            System.out.println(this.getBag(i).getNama());
+            if(i!=this.getSizeBag()){
+                System.out.print(", ");
+            }else{
+                System.out.println();
+            }
         }
-    }
     }
 }

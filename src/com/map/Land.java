@@ -42,6 +42,7 @@ public class Land extends Cell {
      *
      * @return isGrass menandakan apakah ada Grass atau tidak
      */
+    @Override
     public boolean isGrass() {
         return isGrass;
     }
@@ -51,6 +52,7 @@ public class Land extends Cell {
      *
      * @param isGrass menandakan apakah ada Grass atau tidak
      */
+    @Override
     public void setGrass(boolean grass) {
         isGrass = grass;
     }

@@ -8,7 +8,11 @@ import java.util.Vector;
 
 public class Map{
 
+    // Atribut
+
     private Vector<Vector<Cell>> map;
+
+    // Konstruktor
 
     public Map(Vector<Vector<Cell>> map) {
         this.map = map;
@@ -19,7 +23,6 @@ public class Map{
         try {
             inFile = new Scanner(new File(namafile));
         } catch (FileNotFoundException e) {
-
             e.printStackTrace();
         }
 
@@ -33,6 +36,7 @@ public class Map{
             map.add(new Vector<Cell>());
 
             for (int i = 0; i < s.length(); i++) {
+
                 if (s.charAt(i) == 'o') {
                     map.get(line).add(new Land(i, line, false, "Coop"));
                 } else if (s.charAt(i) == 'x') {
@@ -62,13 +66,79 @@ public class Map{
         }
     }
 
-        public void print(){
-            for(int i = 0;i < this.map.size();i++){
-                for(int j = 0;j < this.map.get(i).size();j++){
-                    this.map.get(i).get(j).print();
-                }
-                System.out.println();
-            }
-        }
+    // Getter
 
+    public int getMaxRow()
+    {
+        return this.map.size();
     }
+
+
+    public int getMaxCol()
+    {
+        return this.map.get(0).size();
+    }
+
+
+    public Cell getCell(int row, int col)
+    {
+        assert(row >= 0 && row < this.map.size() && col >= 0 && col < this.map.get(0).size());
+        return this.map.get(row).get(col);
+    }
+
+    // Fungsi lain
+
+    public void print(){
+        for(int i = 0;i < this.map.size();i++){
+            for(int j = 0;j < this.map.get(i).size();j++){
+                this.map.get(i).get(j).print();
+            }
+            System.out.println();
+        }
+    }
+
+
+    public boolean isValidPos(int row, int col)
+    {
+        if (row >= 0 && row < this.map.size() && col >= 0 && col < this.map.get(0).size())
+        {
+            String temp = this.map.get(row).get(col).getLegend();
+            return (temp != "Truck" && temp != "Mixer" && temp != "Well");
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
+    public boolean isWithinArea(int row, int col)
+    {
+        return (row >= 0 && row < this.getMaxRow() && col >= 0 && col < this.getMaxCol());
+    }
+
+
+    public boolean isNear(int row, int col, String _legend)
+    {
+        if (isWithinArea(row, (col + 1)) && this.map.get(row).get(col + 1).getLegend() == _legend)
+        {
+            return true;
+        }
+        else if (isWithinArea((row + 1), col) && this.map.get(row + 1).get(col).getLegend() == _legend)
+        {
+            return true;
+        }
+        else if (isWithinArea((row - 1), col) && this.map.get(row - 1).get(col).getLegend() == _legend)
+        {
+            return true;
+        }
+        else if (isWithinArea(row, (col - 1)) && this.map.get(row).get(col - 1).getLegend() == _legend)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}

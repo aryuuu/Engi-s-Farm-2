@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AnimalContainerTest",
+            "request": "launch",
+            "mainClass": "com.animal.AnimalContainerTest",
+            "projectName": "Engi-s-Farm-2_1749c0af"
+        }
+    ]
+}

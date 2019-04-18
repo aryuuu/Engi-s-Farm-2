@@ -71,6 +71,26 @@ abstract class Animal
     }
 
     /**
+     * Getter atribut baris dari animal
+     *
+     * @return baris dari animal tersebut
+     */
+    public int getX()
+    {
+        return this.loc.getRow();
+    }
+
+    /**
+     * Getter atribut kolom dari animal
+     *
+     * @return kolom dari animal tersebut
+     */
+    public int getY()
+    {
+        return this.loc.getColumn();
+    }
+
+    /**
      * Getter atribut hungerCounter dari animal
      *
      * @return counter kelaparan dari animal tersebut

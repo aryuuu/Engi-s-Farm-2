@@ -1,6 +1,5 @@
 package com.animal;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 // Tipe komentar di sini jangan ditiru
