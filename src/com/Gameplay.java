@@ -1,8 +1,10 @@
 package com;
 
 import com.animal.AnimalContainer;
+import com.animal.Position;
 import com.map.Map;
 import com.player.Player;
+import java.util.Scanner;
 
 /**
  * file Gameplay.java
@@ -129,27 +131,132 @@ public class Gameplay
     
     public void talk()
     {
-
+        int i = farmAnimals.animalNear(player.getX(), player.getY());
+        if (i != -1)
+        {
+            System.out.println("Animal found");
+            System.out.println("Animal " + farmAnimals.getAnimal(i).animalType() + " says " + farmAnimals.getAnimal(i).animalSound());
+        }
+        else
+        {
+            System.out.println("No animal around");
+        }
     }
 
     public void interact()
     {
-
+        int num = farmAnimals.animalNear(player.getX(), player.getY());
+        if (num != -1)
+        {
+            System.out.println("Animal found, type = " + farmAnimals.getAnimal(num).animalType());
+            if (farmAnimals.getAnimal(num).canBeInteracted())
+            {
+                if (!farmAnimals.getAnimal(num).getHungry())
+                {
+                    System.out.println("Interact Product: " + farmAnimals.getAnimal(num).interactProduct());
+                    player.addProduct(farmAnimals.getAnimal(num).interactProduct());
+                    farmAnimals.getAnimal(num).setHungry(true);
+                }
+                else
+                {
+                    System.out.println("Can't be interacted. Animal is strill hungry");
+                }
+            }
+            else
+            {
+                System.out.println("Animal can't be interacted. Because it's useless");
+            }
+            
+        }
+        else if (farmMap.isNear(player.getX(), player.getY(), "Well"))
+        {
+            System.out.println("Well here...");
+            player.addWater();
+        }
+        else if (farmMap.isNear(player.getX(), player.getY(), "Truck"))
+        {
+            System.out.println("Truck here...");
+            player.delProductAll();
+        }
+        else if (farmMap.isNear(player.getX(), player.getY(), "Mixer"))
+        {
+            System.out.println("Mixer here...");
+            System.out.println("Pilihan side product:");
+            System.out.println("1. ButtermilkChicken");
+            System.out.println("2. Omellete");
+            System.out.println("3. Meatball");
+            Scanner in = new Scanner(System.in);
+            int choice = in.nextInt();
+            in.close();
+            switch(choice) {
+                case 1:
+                    player.addProduct("ButtermilkChicken");
+                case 2:
+                    player.addProduct("Omellete");
+                case 3:
+                    player.addProduct("Meatball");
+                default:
+                    System.out.println("Invalid input");
+            }
+        }
+        else
+        {
+            System.out.println("Nothing can be interacted with");
+        }
     }
 
     public void kill()
     {
-        
+        int num = farmAnimals.animalNear(player.getX(), player.getY());
+        if (num != -1)
+        {
+            System.out.println("Animal found, type = " + farmAnimals.getAnimal(num).animalType());
+            if (farmAnimals.getAnimal(num).canBeKilled())
+            {
+                System.out.println("Kill Product: " + farmAnimals.getAnimal(num).killProduct());
+                player.addProduct(farmAnimals.getAnimal(num).killProduct());
+                farmAnimals.removeAnimal(farmAnimals.getAnimal(num));
+            }
+            else
+            {
+                System.out.println("Animal can't be killed, because it's useless");
+            }
+        }
+        else
+        {
+            System.out.println("No animal around");
+        }
     }
 
     public void allAnimalMove()
     {
-
+        for (int i = 0; i < farmAnimals.getNumAnimal(); i++)
+        {
+            Position temp = farmAnimals.getAnimal(i).randomMove();
+            if (farmMap.isWithinArea(temp.getRow(), temp.getColumn()))
+            {
+                if (farmAnimals.animalOn(temp.getRow(), temp.getColumn()) == -1 && farmMap.getCell(temp.getRow(), temp.getColumn()).getLegend().equals(farmAnimals.getAnimal(i).animalHabitat()))
+                {
+                    farmAnimals.getAnimal(i).setLocation(temp.getRow(), temp.getColumn());
+                }
+            }
+        }
     }
 
     public void allAnimalEatGrass()
     {
-
+        for (int i = 0; i < farmAnimals.getNumAnimal(); i++)
+        {
+            if (farmAnimals.getAnimal(i).getHungry())
+            {
+                Position temp = farmAnimals.getAnimal(i).getLocation();
+                if (farmMap.getCell(temp.getRow(), temp.getColumn()).isGrass())
+                {
+                    farmMap.getCell(temp.getRow(), temp.getColumn()).setGrass(false);
+                    farmAnimals.getAnimal(i).animalHasEaten();
+                }
+            }
+        }
     }
 
     public void everyTurn()

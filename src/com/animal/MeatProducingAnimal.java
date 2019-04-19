@@ -17,10 +17,17 @@ package com.animal;
  {
      // Method
 
-     /**
+    /**
+     * Menyatakan apabila animal tersebut menghasilkan daging apabila dibunuh
+     *
+     * @return animal dapat menghasilkan daging
+     */
+    public boolean canProduceMeat();
+
+    /**
      * Mengembalikan produk hasil kill (daging) dari binatang tersebut
      *
      * @return daging dari bintang tersebut
      */
-     public String killProduct();
+    public String meatProduct();
  }

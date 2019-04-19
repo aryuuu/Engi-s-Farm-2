@@ -15,7 +15,7 @@ import java.util.Random;
  *`
  * @since 2019-04-13
  */
-abstract class Animal
+public abstract class Animal implements EggProducingAnimal, MeatProducingAnimal, MilkProducingAnimal
 {
     // Atribut
 
@@ -265,14 +265,58 @@ abstract class Animal
      *
      * @return True jika animal tersebut menghasilkan produk hasil interaksi, False jika tidak
      */
-    public abstract boolean canBeInteracted();
+    public boolean canBeInteracted()
+    {
+        return (canProduceEgg()||canProduceMilk());
+    }
 
     /**
      * Method yang menandakan bahwa animal tersebut dapat dibunuh
      *
      * @return True jika animal tersebut menghasilkan produk hasil kill, False jika tidak
      */
-    public abstract boolean canBeKilled();
+    public boolean canBeKilled()
+    {
+        return canProduceMeat();
+    }
+
+    /**
+     * Method yang memberikan hasil dari interact dengan animal tersebut. Mengembalikan "none" jika tidak ada
+     *
+     * @return Hasil interact dengan binatang tersebut
+     */
+    public String interactProduct()
+    {
+        if (this.canProduceEgg())
+        {
+            return eggProduct();
+        }
+        else if (this.canProduceMilk())
+        {
+            return milkProduct();
+        }
+        else
+        {
+            return "none";
+        }
+    }
+
+    /**
+     * Method yang memberikan hasil dari kill animal tersebut. Mengembalikan "none" jika tidak ada
+     *
+     * @return Hasil kill dengan binatang tersebut
+     */
+    public String killProduct()
+    {
+        if (this.canProduceMeat())
+        {
+            return meatProduct();
+        }
+        else
+        {
+            return "none";
+        }
+    }
 
     /**
      * Method yang menandakan tipe dari animal tersebut
@@ -299,4 +343,6 @@ abstract class Animal
      * Method yang melakukan print animal tersebut pada map
      */
     public abstract void printTile();
+
+    // Dummy method
 }

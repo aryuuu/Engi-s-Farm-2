@@ -128,7 +128,7 @@ public class Player{
     public void addProduct(String Prod) //Menambahkan Nama Product Prod ke Bag dan ditaruh di paling belakang
     {
         int idxResep;
-        if (Prod=="ButtermilkChicken"){
+        if (Prod.equals("ButtermilkChicken")){
             //periksa apakah ButtermilChicken bisa dibuat
             if(this.isAvailable(Prod)){
                 ButtermilkChicken X = new ButtermilkChicken();
@@ -143,7 +143,7 @@ public class Player{
                 System.out.println("Tidak cukup bahan");
             }
 
-        } else if (Prod=="Omellete"){
+        } else if (Prod.equals("Omellete")){
             if(this.isAvailable(Prod)){
                 Omellete X = new Omellete();
                 idxResep = 0;
@@ -156,7 +156,7 @@ public class Player{
             } else {
                 System.out.println("Tidak cukup bahan");
             }
-        } else if (Prod=="Meatball"){
+        } else if (Prod.equals("Meatball")){
             if(this.isAvailable(Prod)){
                 Meatball X = new Meatball();
                 idxResep = 0;
@@ -169,25 +169,25 @@ public class Player{
             } else {
                 System.out.println("Tidak cukup bahan");
             }
-        } else if (Prod=="ChickenEgg"){
+        } else if (Prod.equals("ChickenEgg")){
             ChickenEgg X = new ChickenEgg();
             this.addProduct(X);
-        } else if (Prod=="ChickenMeat"){
+        } else if (Prod.equals("ChickenMeat")){
             ChickenMeat X = new ChickenMeat();
             this.addProduct(X);
-        } else if (Prod=="CowMeat"){
+        } else if (Prod.equals("CowMeat")){
             CowMeat X = new CowMeat();
             this.addProduct(X);
-        } else if (Prod=="CowMilk"){
+        } else if (Prod.equals("CowMilk")){
             CowMilk X = new CowMilk();
             this.addProduct(X);
-        } else if (Prod=="DuckEgg"){
+        } else if (Prod.equals("DuckEgg")){
             DuckEgg X = new DuckEgg();
             this.addProduct(X);
-        } else if (Prod=="HorseMilk"){
+        } else if (Prod.equals("HorseMilk")){
             HorseMilk X = new HorseMilk();
             this.addProduct(X);
-        } else if (Prod=="RabbitMeat"){
+        } else if (Prod.equals("RabbitMeat")){
             RabbitMeat X = new RabbitMeat();
             this.addProduct(X);
         };

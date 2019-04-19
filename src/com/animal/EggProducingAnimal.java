@@ -15,12 +15,19 @@ package com.animal;
 
  interface EggProducingAnimal
  {
-     // Method
+    // Method
 
-     /**
+    /**
+     * Menyatakan apabila animal tersebut merupakan produsen dari egg
+     *
+     * @return animal dapat menghasilkan telur
+     */
+    public boolean canProduceEgg();
+
+    /**
      * Mengembalikan produk hasil interaksi (telur) dari binatang tersebut
      *
      * @return telur dari bintang tersebut
      */
-     public String interactProduct();
+    public String eggProduct();
  }

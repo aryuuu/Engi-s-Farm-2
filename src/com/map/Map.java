@@ -120,19 +120,19 @@ public class Map{
 
     public boolean isNear(int row, int col, String _legend)
     {
-        if (isWithinArea(row, (col + 1)) && this.map.get(row).get(col + 1).getLegend() == _legend)
+        if (isWithinArea(row, (col + 1)) && this.map.get(row).get(col + 1).getLegend().equals(_legend))
         {
             return true;
         }
-        else if (isWithinArea((row + 1), col) && this.map.get(row + 1).get(col).getLegend() == _legend)
+        else if (isWithinArea((row + 1), col) && this.map.get(row + 1).get(col).getLegend().equals(_legend))
         {
             return true;
         }
-        else if (isWithinArea((row - 1), col) && this.map.get(row - 1).get(col).getLegend() == _legend)
+        else if (isWithinArea((row - 1), col) && this.map.get(row - 1).get(col).getLegend().equals(_legend))
         {
             return true;
         }
-        else if (isWithinArea(row, (col - 1)) && this.map.get(row).get(col - 1).getLegend() == _legend)
+        else if (isWithinArea(row, (col - 1)) && this.map.get(row).get(col - 1).getLegend().equals(_legend))
         {
             return true;
         }

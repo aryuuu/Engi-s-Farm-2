@@ -15,7 +15,7 @@ package com.animal;
  *`
  * @since 2019-04-14
  */
-public class Rabbit extends Animal implements MeatProducingAnimal
+public class Rabbit extends Animal
 {
     // Atribut
 
@@ -51,26 +51,6 @@ public class Rabbit extends Animal implements MeatProducingAnimal
     }
 
     // Method-method lain
-
-    /**
-     * Method yang menandakan bahwa animal tersebut dapat diinteraksikan
-     *
-     * @return True jika animal tersebut menghasilkan produk hasil interaksi, False jika tidak
-     */
-    public boolean canBeInteracted()
-    {
-        return false;
-    }
-
-    /**
-     * Method yang menandakan bahwa animal tersebut dapat dibunuh
-     *
-     * @return True jika animal tersebut menghasilkan produk hasil kill, False jika tidak
-     */
-    public boolean canBeKilled()
-    {
-        return true;
-    }
 
     /**
      * Method yang menandakan tipe dari animal tersebut
@@ -118,12 +98,62 @@ public class Rabbit extends Animal implements MeatProducingAnimal
     }
 
     /**
+     * Menyatakan apabila animal tersebut merupakan produsen dari egg
+     *
+     * @return animal dapat menghasilkan telur
+     */
+    public boolean canProduceEgg()
+    {
+        return false;
+    }
+
+    /**
+     * Mengembalikan produk hasil interaksi (telur) dari binatang tersebut
+     *
+     * @return telur dari bintang tersebut
+     */
+    public String eggProduct()
+    {
+        return "none";
+    }
+
+    /**
+     * Menyatakn apabila animal tersebut menghasilkan daging apabila dibunuh
+     *
+     * @return animal dapat menghasilkan daging
+     */
+    public boolean canProduceMeat()
+    {
+        return true;
+    }
+
+    /**
      * Mengembalikan produk hasil kill (daging) dari binatang tersebut
      *
      * @return daging dari bintang tersebut
      */
-    public String killProduct()
+    public String meatProduct()
     {
         return "RabbitMeat";
+    }
+
+    /**
+     * Menyatakan apabila animal yang dimaksud dapat menghasilkan susu
+     *
+     * @return animal dapat menghasilkan susu
+     */
+    public boolean canProduceMilk()
+    {
+        return false;
+    }
+
+    /**
+     * Mengembalikan produk hasil interaksi (susu) dari binatang tersebut
+     *
+     * @return susu dari bintang tersebut
+     */
+    public String milkProduct()
+    {
+        return "none";
     }
 }

@@ -32,6 +32,15 @@ public class Position
     // Kontruktor
 
     /**
+     * Konstruktor tanpa parameter dari kelas Position
+     */
+    public Position ()
+    {
+        this.row = 0;
+        this.col = 0;
+    }
+
+    /**
      * Konstruktor dari kelas Position
      *
      * @param x baris dari position tersebut
