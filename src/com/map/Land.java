@@ -73,7 +73,7 @@ public class Land extends Cell {
     @Override
     public void print() {
 
-        if(this.category == "Coop"){
+        if(this.category.equals("Coop")){
             if (this.isGrass) {
                 System.out.print("*");
             } else {
@@ -81,14 +81,14 @@ public class Land extends Cell {
             }
 
 
-        }else if(this.category == "Barn"){
+        }else if(this.category.equals("Barn")){
             if (this.isGrass) {
                 System.out.print("@");
             } else {
                 System.out.print("x");
             }
 
-        }else if(this.category == "Grassland"){
+        }else if(this.category.equals("Grassland")){
             if (this.isGrass) {
                 System.out.print("#");
             } else {
