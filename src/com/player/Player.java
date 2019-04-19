@@ -6,7 +6,7 @@ public class Player{
     private int water;
     private int money;
     private int x,y;
-    private Linkedlist<Product> bag;
+    private Linkedlist<Product> bag = new Linkedlist<Product>();
     private static final int MAXWATER=25;
     private static final int MAXBAG=25;
 
@@ -108,7 +108,6 @@ public class Player{
             bag.remove(bag.get(1));
         }
         this.addMoney(harga);
-
     }
 
     public void reduceWater() //Mengkurangi atribut water yang ada didalam gebor (Alat penyiraman)

@@ -1,7 +1,7 @@
 package com.player;
 import java.util.*;
 public class Linkedlist<T> {
-    private LinkedList<T> object;
+    private LinkedList<T> object = new LinkedList<T>();;
     public Linkedlist() /* ctor */
     {
         LinkedList<T> object = new LinkedList<T>();
@@ -12,7 +12,7 @@ public class Linkedlist<T> {
     }
     public int find(T element) /*Mengembalikan indeks dimana elemen ditemukan, -1 jika tidak ada*/
     {
-        return object.indexOf(element);
+        return object.indexOf(element)+1;
         /*Iterator<T> itr=object.iterator();
         boolean found = false;
         int posisi=1;
@@ -43,6 +43,6 @@ public class Linkedlist<T> {
     }
     public T get(int indeks) /*Mengembalikan elemen pada indeks*/
     {
-        return object.get(indeks);
+        return object.get(indeks-1);
     }
 }
