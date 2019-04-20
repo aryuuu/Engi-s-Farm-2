@@ -231,24 +231,20 @@ public class Gameplay
         }
     }
 
-    public void mix(int choice)
+    public void mix()
     {
         if (farmMap.isNear(player.getX(), player.getY(), "Mixer"))
         {
             System.out.println("Mixer here...");
-            switch(choice) {
-                case 1:
-                    player.addProduct("ButtermilkChicken");
-                    break;
-                case 2:
-                    player.addProduct("Omellete");
-                    break;
-                case 3:
-                    player.addProduct("Meatball");
-                    break;
-                default:
-                    System.out.println("Invalid input");
-            }
+
+            System.out.println("Mixing Buttermilk Chicken");
+            player.addProduct("ButtermilkChicken");
+
+            System.out.println("Mixing Omellete");
+            player.addProduct("Omellete");
+
+            System.out.println("Mixing Meatball");
+            player.addProduct("Meatball");
         }
         else
         {
