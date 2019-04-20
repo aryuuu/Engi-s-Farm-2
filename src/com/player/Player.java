@@ -1,17 +1,47 @@
 package com.player;
 import java.lang.String;
+/**
+ * file Player.java
+ * <p>
+ *     Kelas Player merepresentasikan Pemain
+ * </p>
+ *
+ * @author Marsa Thoriq Ahmada / 13517071
+ *
+ * @version 1.0
+ *`
+ * @since 2019-04-20
+ */
 public class Player{
     // Atribut
+    /**
+     *  Atribut yang merupakan banyaknya air yang bisa digunakan untuk menyiram
+     */
     private int water;
+    /**
+     *  Atribut yang merupakan banyaknya uang
+     */
     private int money;
+    /**
+     *  Atribut yang merupakan posisi dari player dalam map
+     */
     private int x,y;
+    /**
+     *  Atribut yang merupakan gambaran tas dari pemain
+     */
     private Linkedlist<Product> bag = new Linkedlist<Product>();
+    /**
+     *  Konstanta maksimal air dalam gembor
+     */
     private static final int MAXWATER=25;
-    private static final int MAXBAG=25;
+    /**
+     *  Konstanta maksimal isi tas dari pemain
+     */
+    private static final int MAXBAG=10;
 
-    // Method
-
-    // Kontruktor
+    /**
+     * Konstruktor dari class Player
+     */
 
     public Player(){
         setMoney(0);
@@ -23,63 +53,99 @@ public class Player{
 
     // Getter
 
+    /**
+     * getter dari water
+     * @return water yang merupakan banyaknya air yang bisa digunakan untuk menyiram
+     */
     public int getWater() //mengambil atribut water
     {
         return water;
     
     }
+
+    /**
+     * getter dari uang
+     * @return uang dari pemain
+     */
     public int getMoney()//mengambil atribut money
     {
         return money;
     }
-
+    /**
+     * getter dari x
+     * @return posisi baris dari pemain
+     */
     public int getX()//mengambil atribut x (posisi Absis player)
     {
         return x;
     }
-    
+    /**
+     * getter dari y
+     * @return posisi kolom dari pemain
+     */
     public int getY()//mengambil atribut y (posisi Ordinat player)
     {
         return y;
     }
 
+    /**
+     * getter dari bag
+     * @return Product pada posisi idx dalam tas
+     */
     public Product getBag(int idx)////mengambil Product yang ada dalam LinkedList Bag pada indeks idx
     {
         return bag.get(idx);
     }
 
+    /**
+     * getter dari ukuran tas
+     * @return ukuran tas
+     */
     public int getSizeBag() //Menghitung ukuran tas
     {
         return bag.size();
     }
 
     //setter
+
+    /**
+     * setter dari Water
+     * @param water
+     */
     public void setWater(int water) //mengubah nilai atribut water
     {
         this.water=water;
     }
-
+    /**
+     * setter dari Money
+     * @param money
+     */
     public void setMoney(int money) //mengubah nilai atribut money
     {
         this.money=money;
     }
-
+    /**
+     * setter dari X
+     * @param x
+     */
     public void setX(int x) //mengubah nilai atribut x (posisi Absis player)
     {
         this.x=x;
     }
 
+    /**
+     * setter dari Y
+     * @param y
+     */
     public void setY(int y)//mengubah nilai atribut y (posisi Ordinat player)
     {
         this.y=y;
     }
 
-    public void setBag(int idx, Product prod) //menghapus produk pada indeks i lalu menambahkan produk prod
-    {
-        this.delProduct(bag.get(idx).getNama());
-        this.addProduct(prod);
-    }
-
+    /**
+     * method pergerakan pemain
+     * @param move
+     */
     public void playerMove(char move) //Memindahkan posisi player ke atas / kanan / bawah / kiri dengan parameter input charr u/r/d/l dan posisi harus valid (harus divalidasi dulu)
     {
         if(move=='l'){
@@ -92,42 +158,9 @@ public class Player{
             x+=1;
         }
     }
-
-    public void delProduct(String Prod) //Menghapus product dari bag dengan parameter input NamaProduct
-    {
-        if (Prod.equals("ButtermilkChicken")){
-            ButtermilkChicken X = new ButtermilkChicken();
-            bag.remove(bag.find(X));
-        } else if (Prod.equals("Omellete")){
-            Omellete X = new Omellete();
-            bag.remove(bag.find(X));
-        } else if (Prod.equals("Meatball")){
-            Meatball X = new Meatball();
-            bag.remove(bag.find(X));
-        } else if (Prod.equals("ChickenEgg")){
-            ChickenEgg X = new ChickenEgg();
-            bag.remove(bag.find(X));
-        } else if (Prod.equals("ChickenMeat")){
-            ChickenMeat X = new ChickenMeat();
-            bag.remove(bag.find(X));
-        } else if (Prod.equals("CowMeat")){
-            CowMeat X = new CowMeat();
-            bag.remove(bag.find(X));
-        } else if (Prod.equals("CowMilk")){
-            CowMilk X = new CowMilk();
-            bag.remove(bag.find(X));
-        } else if (Prod.equals("DuckEgg")){
-            DuckEgg X = new DuckEgg();
-            bag.remove(bag.find(X));
-        } else if (Prod.equals("HorseMilk")){
-            HorseMilk X = new HorseMilk();
-            bag.remove(bag.find(X));
-        } else if (Prod.equals("RabbitMeat")){
-            RabbitMeat X = new RabbitMeat();
-            bag.remove(bag.find(X));
-        };
-    }
-
+    /**
+     * Method untuk menghapus semua isi tas dan menambahkan uang
+     */
     public void delProductAll() //Mengosongkan Bag
     {
         int harga=0;
@@ -138,20 +171,31 @@ public class Player{
         this.addMoney(harga);
     }
 
+    /**
+     * Method untuk mengurangi jumlah air dalam gembor sebanyak 1
+     */
     public void reduceWater() //Mengkurangi atribut water yang ada didalam gebor (Alat penyiraman)
     {
         water-=1;
     }
 
+    /**
+     * Method untuk Menambahkan produk Prod
+     * @param Prod
+     */
     public void addProduct(Product Prod) //Menambahkan Product Prod ke Bag dan ditaruh di paling belakang
     {
         if (this.getSizeBag()<MAXBAG){
-        bag.add(Prod);
+            bag.add(Prod);
         }else{
             System.out.println("Tas Penuh");
         }
     }
 
+    /**
+     * Method untuk menambahkan produk benama prod
+     * @param Prod
+     */
     public void addProduct(String Prod) //Menambahkan Nama Product Prod ke Bag dan ditaruh di paling belakang
     {
         int idxResep;
@@ -240,19 +284,40 @@ public class Player{
             this.addProduct(X);
         };
     }
+
+    /**
+     * Method untuk mengisi air maksimal dalam gembor
+     */
     public void addWater() //Mengisi gebor dengan air secara maksimal (sesuai kapasitas) dengan mengubah atribut water
     {
         water=MAXWATER;
     }
+
+    /**
+     * Method untuk menambah uang sebanyak harga
+     * @param harga
+     */
     public void addMoney(int harga) //Menambah atribut money sesuai dengan harga
     {
         money+=harga;
     }
+
+    /**
+     * Method megecek posisi
+     * @param x
+     * @param y
+     * @return boolean True jika posisi tersebut merupakan tempat player
+     */
     public boolean isValid(int x,int y) //Mengecek Posisi tersebut ditempati player atau tidak mengembalikan true jika posisi tersebut ditempati player
     {
         return (this.getX()==x&&this.getY()==y);
     }
 
+    /**
+     * Method untuk mengecek apakah bisa membuat product
+     * @param productname
+     * @return boolean True jika productname bisa dibuat False jika tidak
+     */
     public boolean isAvailable(String productname) //mengembalikan true jika SideProduct dengan nama productname bisa dibuat dengan inventori sekarang, false jika tidak
     {
         if(productname == "ButtermilkChicken"){
@@ -338,7 +403,9 @@ public class Player{
         }
     }
 
-
+    /**
+     * Method untuk menulis inventori
+     */
     public void print() //menulis inventori
     {
         System.out.print("Money	: ");
