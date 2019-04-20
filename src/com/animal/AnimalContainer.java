@@ -49,9 +49,8 @@ public class AnimalContainer
      * <p>
      *    Membuat ArrayList of animal baru yang menyimpan data setiap animal yang masih hidup dalam sebuah farm
      * </p>
-     * 
-     * @exception FileNotFoundException jika file eksternal tidak dapat dibaca
-     * @exception IOException jika line pada file eksternal tidak valid
+     *
+     * @param filename - nama file yang mengandung semua animal di animalContainer
      */
     public AnimalContainer(String filename)
     {

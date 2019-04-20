@@ -347,6 +347,4 @@ public abstract class Animal implements EggProducingAnimal, MeatProducingAnimal,
      * Method yang melakukan print animal tersebut pada map
      */
     public abstract void printTile();
-
-    // Dummy method
 }
