@@ -1,7 +1,6 @@
 package com.player;
 import java.lang.String;
 public class Player{
-
     // Atribut
     private int water;
     private int money;
@@ -94,10 +93,39 @@ public class Player{
         }
     }
 
-    public void delProduct(String NamaProduct) //Menghapus product dari bag dengan parameter input NamaProduct
+    public void delProduct(String Prod) //Menghapus product dari bag dengan parameter input NamaProduct
     {
-        Product cari = new Product(NamaProduct,0);
-        bag.remove(cari);
+        if (Prod.equals("ButtermilkChicken")){
+            ButtermilkChicken X = new ButtermilkChicken();
+            bag.remove(bag.find(X));
+        } else if (Prod.equals("Omellete")){
+            Omellete X = new Omellete();
+            bag.remove(bag.find(X));
+        } else if (Prod.equals("Meatball")){
+            Meatball X = new Meatball();
+            bag.remove(bag.find(X));
+        } else if (Prod.equals("ChickenEgg")){
+            ChickenEgg X = new ChickenEgg();
+            bag.remove(bag.find(X));
+        } else if (Prod.equals("ChickenMeat")){
+            ChickenMeat X = new ChickenMeat();
+            bag.remove(bag.find(X));
+        } else if (Prod.equals("CowMeat")){
+            CowMeat X = new CowMeat();
+            bag.remove(bag.find(X));
+        } else if (Prod.equals("CowMilk")){
+            CowMilk X = new CowMilk();
+            bag.remove(bag.find(X));
+        } else if (Prod.equals("DuckEgg")){
+            DuckEgg X = new DuckEgg();
+            bag.remove(bag.find(X));
+        } else if (Prod.equals("HorseMilk")){
+            HorseMilk X = new HorseMilk();
+            bag.remove(bag.find(X));
+        } else if (Prod.equals("RabbitMeat")){
+            RabbitMeat X = new RabbitMeat();
+            bag.remove(bag.find(X));
+        };
     }
 
     public void delProductAll() //Mengosongkan Bag
@@ -105,7 +133,7 @@ public class Player{
         int harga=0;
         while(!bag.isEmpty()){
             harga+=bag.get(1).getHarga();
-            bag.remove(bag.get(1));
+            bag.remove(0);
         }
         this.addMoney(harga);
     }
@@ -149,6 +177,7 @@ public class Player{
                 while(idxResep < X.getNResep()){ //hapus bahan dari inventori
                     this.delProduct(X.getResep(idxResep));
                     idxResep++;
+                    //System.out.println(idxResep);
                 }
 
                 this.addProduct(X);
@@ -295,11 +324,11 @@ public class Player{
         System.out.print("Money	: ");
         System.out.println(this.getMoney());
         System.out.print("Water	: ");
-        System.out.print(this.getWater());
-        System.out.print("bag	: ");
+        System.out.println(this.getWater());
+        System.out.print("bag	    : ");
         
         for(int i=1;i<=this.getSizeBag();i++){
-            System.out.println(this.getBag(i).getNama());
+            System.out.print(this.getBag(i).getNama());
             if(i!=this.getSizeBag()){
                 System.out.print(", ");
             }else{

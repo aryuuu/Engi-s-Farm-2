@@ -9,8 +9,6 @@ package com.player;
 public class Product{
 	protected String nama;
 	protected int harga;
-
-
 		/*
 		 *@constructor product menerima dua argumen
 		 * argumen pertama adalah String yang merupakan nama produk
@@ -48,11 +46,7 @@ public class Product{
 	public void setHarga(int harga) {
 		this.harga = harga;
 	}
-
 	public boolean samaDengan(Product p){
 		return this.nama == p.getNama();
 	}
-
-
-
 }
