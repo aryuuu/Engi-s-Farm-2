@@ -22,7 +22,7 @@ public abstract class Animal implements EggProducingAnimal, MeatProducingAnimal,
     /**
      * Angka maksimum dari counter kelaparan animal. Jika melampaui ini, maka animal mati
      */
-    protected final int DEADCOUNTER = 50;
+    protected final int DEADCOUNTER = 60;
 
     /**
      * Posisi dari animal tersebut (memanfaatkan Position)

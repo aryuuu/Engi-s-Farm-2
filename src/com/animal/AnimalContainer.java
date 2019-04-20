@@ -249,6 +249,10 @@ public class AnimalContainer
         for (int i = 0; i < animals.size(); i++)
         {
             animals.get(i).hungrier();
+            if (animals.get(i).getHungerCounter() >= 30)
+            {
+                animals.get(i).setHungry(true);
+            }
         }
     }
 
