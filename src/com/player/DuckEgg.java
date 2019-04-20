@@ -1,17 +1,20 @@
 package com.player;
 /**
- *@Kelas DuckEgg
+ * file ChickenEgg.java
+ * <p>
+ *     Kelas yang merepresentasikan produk yang didapat setelah player berinteraksi dengan Duck
+ * </p>
  *
- *@Kelas ini merupakan kelas dari objek 
- * yang didapat setelah player berinteraksi dengan 
- * Duck
-*/
+ * @author M Algah Fattah Illahi / 13517122
+ *
+ * @version 1.0
+ *`
+ * @since 2019-04-13
+ */
 public class DuckEgg extends Product {
-	/*
-	 *@Constructor 
-	 *
-	 *@Konstruktor ini tidak menerima argumen apapun
-	*/
+	/**
+     * Konstruktor dari class DuckEgg
+     */
 	public DuckEgg(){
 		super("DuckEgg", 3000);
 	}

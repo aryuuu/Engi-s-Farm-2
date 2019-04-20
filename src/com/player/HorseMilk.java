@@ -1,17 +1,20 @@
 package com.player;
 /**
- *@Kelas HorseMilk
+ * file ChickenEgg.java
+ * <p>
+ *     Kelas yang merepresentasikan produk yang didapat setelah player berinteraksi dengan Horse
+ * </p>
  *
- *@Kelas ini merupakan kelas dari objek 
- * yang didapat setelah player berinteraksi dengan 
- * HorseMilk
-*/
+ * @author M Algah Fattah Illahi / 13517122
+ *
+ * @version 1.0
+ *`
+ * @since 2019-04-13
+ */
 public class HorseMilk extends Product {
-	/*
-	 *@Constructor 
-	 *
-	 *@Konstruktor ini tidak menerima argumen apapun
-	*/
+	/**
+     * Konstruktor dari class HorseMilk
+     */
 	public HorseMilk(){
 		super("HorseMilk", 12000);
 	}
