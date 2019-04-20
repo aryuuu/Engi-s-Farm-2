@@ -77,7 +77,7 @@ public abstract class Cell {
     /**
      * Setter atribut lokasi x dari animal
      *
-     * @param lokasi x dari animal
+     * @param x lokasi x dari animal
      */
     public void setX(int x) {
         this.x = x;
@@ -86,7 +86,7 @@ public abstract class Cell {
     /**
      * Setter atribut lokasi y dari animal
      *
-     * @param lokasi y dari animal
+     * @param y lokasi y dari animal
      */
     public void setY(int y) {
         this.y = y;
