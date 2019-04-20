@@ -1,10 +1,10 @@
+// Changed
 package com;
 
 import com.animal.AnimalContainer;
 import com.animal.Position;
 import com.map.Map;
 import com.player.Player;
-import java.util.Scanner;
 
 /**
  * file Gameplay.java
@@ -42,11 +42,11 @@ public class Gameplay
                 else if (farmAnimals.animalOn(i, j) != -1)
                 {
                     int x = farmAnimals.animalOn(i, j);
-                    System.out.print(farmAnimals.getAnimal(x));
+                    farmAnimals.getAnimal(x).printTile();
                 }
                 else
                 {
-                    farmMap.getCell(i, j).getLegend();
+                    farmMap.getCell(i, j).print();
                 }
                 System.out.print(" ");
             }
@@ -110,7 +110,7 @@ public class Gameplay
 
     public void grow()
     {
-        if (farmMap.getCell(player.getX(), player.getY()).isGrass())
+        if (!farmMap.getCell(player.getX(), player.getY()).isGrass())
         {
             if (player.getWater() > 0)
             {
@@ -178,27 +178,6 @@ public class Gameplay
             System.out.println("Truck here...");
             player.delProductAll();
         }
-        else if (farmMap.isNear(player.getX(), player.getY(), "Mixer"))
-        {
-            System.out.println("Mixer here...");
-            System.out.println("Pilihan side product:");
-            System.out.println("1. ButtermilkChicken");
-            System.out.println("2. Omellete");
-            System.out.println("3. Meatball");
-            Scanner in = new Scanner(System.in);
-            int choice = in.nextInt();
-            in.close();
-            switch(choice) {
-                case 1:
-                    player.addProduct("ButtermilkChicken");
-                case 2:
-                    player.addProduct("Omellete");
-                case 3:
-                    player.addProduct("Meatball");
-                default:
-                    System.out.println("Invalid input");
-            }
-        }
         else
         {
             System.out.println("Nothing can be interacted with");
@@ -228,6 +207,31 @@ public class Gameplay
         }
     }
 
+    public void mix(int choice)
+    {
+        if (farmMap.isNear(player.getX(), player.getY(), "Mixer"))
+        {
+            System.out.println("Mixer here...");
+            switch(choice) {
+                case 1:
+                    player.addProduct("ButtermilkChicken");
+                    break;
+                case 2:
+                    player.addProduct("Omellete");
+                    break;
+                case 3:
+                    player.addProduct("Meatball");
+                    break;
+                default:
+                    System.out.println("Invalid input");
+            }
+        }
+        else
+        {
+            System.out.println("No mixer around...");
+        }
+    }
+
     public void allAnimalMove()
     {
         for (int i = 0; i < farmAnimals.getNumAnimal(); i++)
@@ -235,7 +239,7 @@ public class Gameplay
             Position temp = farmAnimals.getAnimal(i).randomMove();
             if (farmMap.isWithinArea(temp.getRow(), temp.getColumn()))
             {
-                if (farmAnimals.animalOn(temp.getRow(), temp.getColumn()) == -1 && farmMap.getCell(temp.getRow(), temp.getColumn()).getLegend().equals(farmAnimals.getAnimal(i).animalHabitat()))
+                if (player.getX() != temp.getRow() && player.getY() != temp.getColumn() && farmAnimals.animalOn(temp.getRow(), temp.getColumn()) == -1 && farmMap.getCell(temp.getRow(), temp.getColumn()).getCategory().equals(farmAnimals.getAnimal(i).animalHabitat()))
                 {
                     farmAnimals.getAnimal(i).setLocation(temp.getRow(), temp.getColumn());
                 }

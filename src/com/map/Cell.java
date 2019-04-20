@@ -111,5 +111,6 @@ public abstract class Cell {
     // Dummy method
     // Di-overwrite dengan method di land
     public void setGrass(boolean grass){};
+    public String getCategory(){return "None";}
     public boolean isGrass(){return false;}
 }

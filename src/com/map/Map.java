@@ -58,10 +58,7 @@ public class Map{
                 } else {
                     System.out.println("Error Reading");
                 }
-
-                System.out.print(s.charAt(i));
             }
-            System.out.println();
             line++;
         }
     }

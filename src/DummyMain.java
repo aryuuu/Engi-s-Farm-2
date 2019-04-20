@@ -13,6 +13,7 @@ public class DummyMain
 
         while (!cmd.toLowerCase().equals("exit"))
         {
+            game.showGameplay();
             System.out.print("Command: ");
             cmd = in.nextLine();
             if (cmd.toLowerCase().equals("w")) {
