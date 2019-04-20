@@ -8,19 +8,47 @@ import com.player.Player;
 
 /**
  * file Gameplay.java
+ *
+ * <p>
+ *     Menggambarkan class yang permainan, yang menyatukan player, map, dan animal
+ * </p>
+ *
+ * @author Jan Meyer Saragih / 13517131
+ *
+ * @version 1.0
+ *
+ * @since 2019-04-18
+ *
  */
 public class Gameplay
 {
     // Atribut
 
+    /**
+     * Menggambarkan semua animal yang terdapat dalam game tersebut
+     */
     private AnimalContainer farmAnimals;
 
+    /**
+     * Menggambarkan peta dari peternakan tersebut
+     */
     private Map farmMap;
 
+    /**
+     * Menggambarkan player yang memiliki farm tersebut
+     */
     private Player player;
 
     // Method
 
+    /**
+     * Konstruktor dari kelas Gameplay
+     * <p>
+     *     Mennginstansiasi kelas AnimalContainer, Map, dan Player yang terdapat dalam game
+     * </p>
+     * @param filename1 - File dari peta pertanian
+     * @param filename2 - File dari data setiap animal dalam farm
+     */
     public Gameplay (String filename1, String filename2)
     {
         farmMap = new Map(filename1);
@@ -28,30 +56,57 @@ public class Gameplay
         player = new Player();
     }
 
+    /**
+     * Getter dari Farm Animal
+     * @return Mengembalikan AnimalContainer dari farm tersebut
+     */
     public AnimalContainer getFarmAnimals() {
         return farmAnimals;
     }
 
+    /**
+     * Setter dari Farm Animal
+     * @param farmAnimals - AnimalContainer yang ingin diset dalam game ini
+     */
     public void setFarmAnimals(AnimalContainer farmAnimals) {
         this.farmAnimals = farmAnimals;
     }
 
+    /**
+     * Getter dari Farm Map
+     * @return Mengembalikan Map (peta pertanian) dari game tersebut
+     */
     public Map getFarmMap() {
         return farmMap;
     }
 
+    /**
+     * Setter ari Farm Map
+     * @param farmMap - Map (peta) yang ingin diset dalam game ini
+     */
     public void setFarmMap(Map farmMap) {
         this.farmMap = farmMap;
     }
 
+    /**
+     * Getter dari Player
+     * @return Mengembalikan Player yang berada dalam game
+     */
     public Player getPlayer() {
         return player;
     }
 
+    /**
+     * Setter dari Player
+     * @param player - Player yang berada dalam game ini
+     */
     public void setPlayer(Player player) {
         this.player = player;
     }
 
+    /**
+     * Menampilkan gameplay melalui CLI (peta, animal, dan player)
+     */
     public void showGameplay()
     {
         System.out.println();
@@ -80,6 +135,9 @@ public class Gameplay
         player.print();
     }
 
+    /**
+     * Menggerakkan player ke atas jika bisa
+     */
     public void moveUp()
     {
         if (farmMap.isValidPos(player.getX() - 1, player.getY()) && farmAnimals.animalOn(player.getX() - 1, player.getY()) == -1)
@@ -93,6 +151,9 @@ public class Gameplay
         }
     }
 
+    /**
+     * Menggerakkan player ke bawah jika bisa
+     */
     public void moveDown()
     {
         if (farmMap.isValidPos(player.getX() + 1, player.getY()) && farmAnimals.animalOn(player.getX() + 1, player.getY()) == -1)
@@ -106,6 +167,9 @@ public class Gameplay
         }
     }
 
+    /**
+     * Menggerakkan player ke kiri jika bisa
+     */
     public void moveLeft()
     {
         if (farmMap.isValidPos(player.getX(), player.getY() - 1) && farmAnimals.animalOn(player.getX(), player.getY() - 1) == -1)
@@ -119,6 +183,9 @@ public class Gameplay
         }
     }
 
+    /**
+     * Menggerakkan player ke kanan jika bisa
+     */
     public void moveRight()
     {
         if (farmMap.isValidPos(player.getX(), player.getY() + 1) && farmAnimals.animalOn(player.getX(), player.getY() + 1) == -1)
@@ -132,6 +199,12 @@ public class Gameplay
         }
     }
 
+    /**
+     * Menumbuhkan rumput di tempat player berdiri
+     * <p>
+     *     Syarat: player berada di tanah yang tidak memiliki rumput dan memiliki air yang diambil dari well
+     * </p>
+     */
     public void grow()
     {
         if (!farmMap.getCell(player.getX(), player.getY()).isGrass())
@@ -152,7 +225,10 @@ public class Gameplay
             System.out.println("No need for watering");
         }
     }
-    
+
+    /**
+     * Player berbicara dengan animal dan dikeluarkan suara dari animal tersebut
+     */
     public void talk()
     {
         int i = farmAnimals.animalNear(player.getX(), player.getY());
@@ -167,6 +243,14 @@ public class Gameplay
         }
     }
 
+    /**
+     * Player berinteraksi dengan animal, well, atau truck
+     * <p>
+     *     Jika player berada dekat animal, maka animal tersebut mengeluarkan interactProduct jika kenyang dan menjadi lapar.
+     *     Jika player berinteraksi dengan well, player akan mendapatkan air
+     *     Jika player berinteraksi dengan truck, player akan menjual semua isi inventorynya
+     * </p>
+     */
     public void interact()
     {
         int num = farmAnimals.animalNear(player.getX(), player.getY());
@@ -208,6 +292,9 @@ public class Gameplay
         }
     }
 
+    /**
+     * Player membunuh animal yang berada di dekatnya jika animal tersebut dapat dibunuh
+     */
     public void kill()
     {
         int num = farmAnimals.animalNear(player.getX(), player.getY());
@@ -231,6 +318,9 @@ public class Gameplay
         }
     }
 
+    /**
+     * Player menggabungkan FarmProduct yang dimiliki dan membuat SideProduct jika mampu
+     */
     public void mix()
     {
         if (farmMap.isNear(player.getX(), player.getY(), "Mixer"))
@@ -252,6 +342,9 @@ public class Gameplay
         }
     }
 
+    /**
+     * Semua animal bergerak secara acak. Lalu, divalidasi dengan tidak adanya player, facility, atau animal lain di daerah target
+     */
     public void allAnimalMove()
     {
         for (int i = 0; i < farmAnimals.getNumAnimal(); i++)
@@ -267,6 +360,9 @@ public class Gameplay
         }
     }
 
+    /**
+     * Semua animal yang lapar dan berdiri di atas rumput, makan rumput dan menjadi kenyang
+     */
     public void allAnimalEatGrass()
     {
         for (int i = 0; i < farmAnimals.getNumAnimal(); i++)
@@ -283,6 +379,9 @@ public class Gameplay
         }
     }
 
+    /**
+     * Menggambarkan setiap
+     */
     public void everyTurn()
     {
         allAnimalMove();
