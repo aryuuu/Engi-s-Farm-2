@@ -1,41 +1,50 @@
 package com.player;
 /**
- * @author M Algah Fattah Illahi/13517122
- *@Kelas Omellete
+ * file Omellete.java
+ * <p>
+ *     Kelas yang merepresentasikan produk yang didapat setelah player mengolah CowMilk dan ChickenEgg
+ * </p>
  *
- *@Kelas ini merupakan kelas dari objek 
- * yang didapat setelah player mengolah ChickenEgg, CowMilk
-*/
+ * @author M Algah Fattah Illahi
+ *
+ * @version 1.0
+ *`
+ * @since 2019-04-13
+ */
 public class Omellete extends Product implements SideProduct{
-/**
-	 *@nResep merupakan atribut yang menyimpan jumlah 
-	 * bahan yang dibutuhkan untuk membuat produk ini
-	*/
+	// Atribut
+    /**
+     *  Atribut yang merupakan jumlah dari bahan yang dibutuhkan untuk membuat omellete
+     */
 	private int nResep = 2;
-	/*
-	 *@resep merupakan atribut yang berisi daftar
-	 * nama bahan yang dibutuhkan untuk membuat 
-	 * produk ini
-	*/
+	
+    /**
+     *  Atribut yang merupakan daftar nama dari produk yang dibutuhkan untuk membuat omellete
+     */
 	private String resep[] = {"CowMilk", "ChickenEgg"};
+	
+	// Getter
 	/**
-	 *@method ini tidak menerima argumen apapun
-	 *@method ini mengembalikan jumlah bahan 
-	 * yang dibutukan untuk membuat produk ini
-	*/
+	 * getter dari nResep
+	 * @return nresep yang merupakan jumlah bahan yang dibutuhkan untuk membuat omellete
+	 */
 	public int getNResep(){
 		return this.nResep;
 	}
-	/**
-	 *@method ini menerima satu argumen integer i, integer yang merupakan index bahan
-	 * yang terdapat pada array nama bahan
-	 *@method ini mengembalikan nama bahan yang terdapat di index ke-i
-	*/
+
+    /**
+     * getter dari resep
+     * @param i index dari bahan di daftar bahan
+     * @return nama bahan dari daftar resep di index ke i
+     */
 	public String getResep(int i){
 		assert(i >= 0 && i < nResep);
 		return (resep[i]);
 	}
 
+	/**
+     * Konstruktor dari class Omellete
+     */
 	public Omellete(){
 		super("Omellete", 15000);
 	}

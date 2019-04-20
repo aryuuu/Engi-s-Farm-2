@@ -1,19 +1,27 @@
 package com.player;
 /**
- *@author M Algah Fattah Illahi/13517122
+ * file ChickenEgg.java
+ * <p>
+ *     Kelas yang merepresentasikan produk yang didapat setelah player menyembelih Rabbit
+ * </p>
  *
-**/
+ * @author M Algah Fattah Illahi / 13517122
+ *
+ * @version 1.0
+ *`
+ * @since 2019-04-13
+ */
 interface SideProduct{
+	
 	/**
-	 *@method ini tidak menerima argumen apapun
-	 *@method ini mengembalikan jumlah bahan 
-	 * yang dibutukan untuk membuat produk ini
-	*/
+	 * getter
+	 * @return [description]
+	 */
 	int getNResep();
 	/**
-	 *@method ini menerima satu argumen integer i, integer yang merupakan index bahan
-	 * yang terdapat pada array nama bahan
-	 *@method ini mengembalikan nama bahan yang terdapat di index ke-i
-	*/
+	 * getter dari resep
+	 * @param  i index dari bahan di daftar resep
+	 * @return  nama bahan yang berada di daftar resep di index ke i
+	 */
 	String getResep(int i);
 }
