@@ -248,6 +248,7 @@ public class Player{
                 while(idxResep < X.getNResep()){ //hapus bahan dari inventori
                     for (int i = 1; i <= getSizeBag(); i++)
                     {
+                        System.out.println(i);
                         if (getBag(i).getNama().equals(X.getResep(idxResep)))
                         {
                             bag.remove(i);
@@ -255,6 +256,7 @@ public class Player{
                         }
                     }
                     idxResep++;
+                    //System.out.println(idxResep);
                 }
 
                 this.addProduct(X);
@@ -378,10 +380,10 @@ public class Player{
             int idxbag;
             // int count = 0; //hitung jumlah bahan resep yang sudah ditemukan
             boolean found = false; //flag yang bernilai true jika bahan ditemukan
-            while(idxResep < mb.getNResep() && !found){
+            while(idxResep < mb.getNResep()){
                 idxbag = 1;
                 found = false;//inisialisasi
-                while(idxbag <= this.getSizeBag()){
+                while(idxbag <= this.getSizeBag() && !found){
                     if(this.getBag(idxbag).getNama() == mb.getResep(idxResep)){//jika produk ditemukan
                         //		idxbag = this.getSizeBag(); //skip loop
                         // count++;
