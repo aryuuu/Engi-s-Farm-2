@@ -233,7 +233,7 @@ public abstract class Animal implements EggProducingAnimal, MeatProducingAnimal,
 
         for (int i = 0; i < randOut; i++)
         {
-            randIn = r.nextInt(4) + 1;
+            randIn = r.nextInt(5) + 1;
         }
 
         switch (randIn) {
@@ -251,6 +251,10 @@ public abstract class Animal implements EggProducingAnimal, MeatProducingAnimal,
                 break;
             case 4:
                 targetPos.setRow(x + 1);
+                targetPos.setColumn(y);
+                break;
+            case 5:
+                targetPos.setRow(x);
                 targetPos.setColumn(y);
                 break;
             default:
