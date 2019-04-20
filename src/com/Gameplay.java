@@ -28,6 +28,30 @@ public class Gameplay
         player = new Player();
     }
 
+    public AnimalContainer getFarmAnimals() {
+        return farmAnimals;
+    }
+
+    public void setFarmAnimals(AnimalContainer farmAnimals) {
+        this.farmAnimals = farmAnimals;
+    }
+
+    public Map getFarmMap() {
+        return farmMap;
+    }
+
+    public void setFarmMap(Map farmMap) {
+        this.farmMap = farmMap;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
     public void showGameplay()
     {
         System.out.println();
