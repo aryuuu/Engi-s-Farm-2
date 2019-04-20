@@ -133,7 +133,7 @@ public class Player{
         int harga=0;
         while(!bag.isEmpty()){
             harga+=bag.get(1).getHarga();
-            bag.remove(0);
+            bag.remove(1);
         }
         this.addMoney(harga);
     }
@@ -161,7 +161,14 @@ public class Player{
                 ButtermilkChicken X = new ButtermilkChicken();
                 idxResep = 0;
                 while(idxResep < X.getNResep()){ //hapus bahan dari inventori
-                    this.delProduct(X.getResep(idxResep));
+                    for (int i = 1; i <= getSizeBag(); i++)
+                    {
+                        if (getBag(i).getNama().equals(X.getResep(idxResep)))
+                        {
+                            bag.remove(i);
+                            break;
+                        }
+                    }
                     idxResep++;
                 }
 
@@ -175,11 +182,17 @@ public class Player{
                 Omellete X = new Omellete();
                 idxResep = 0;
                 while(idxResep < X.getNResep()){ //hapus bahan dari inventori
-                    this.delProduct(X.getResep(idxResep));
+                    for (int i = 1; i <= getSizeBag(); i++)
+                    {
+                        if (getBag(i).getNama().equals(X.getResep(idxResep)))
+                        {
+                            bag.remove(i);
+                            break;
+                        }
+                    }
                     idxResep++;
                     //System.out.println(idxResep);
                 }
-
                 this.addProduct(X);
             } else {
                 System.out.println("Tidak cukup bahan");
@@ -189,7 +202,14 @@ public class Player{
                 Meatball X = new Meatball();
                 idxResep = 0;
                 while(idxResep < X.getNResep()){ //hapus bahan dari inventori
-                    this.delProduct(X.getResep(idxResep));
+                    for (int i = 1; i <= getSizeBag(); i++)
+                    {
+                        if (getBag(i).getNama().equals(X.getResep(idxResep)))
+                        {
+                            bag.remove(i);
+                            break;
+                        }
+                    }
                     idxResep++;
                 }
 

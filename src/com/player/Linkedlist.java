@@ -39,7 +39,7 @@ public class Linkedlist<T> {
     }
     public void remove(int idx) /*Membuang elemen dari linked list*/
     {
-        object.remove(idx);
+        object.remove(idx - 1);
     }
     public T get(int indeks) /*Mengembalikan elemen pada indeks*/
     {
