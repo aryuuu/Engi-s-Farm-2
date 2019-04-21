@@ -50,7 +50,7 @@ public class Land extends Cell {
     /**
      * Setter atribut isGrass menandakan apakah ada Grass atau tidak
      *
-     * @param isGrass menandakan apakah ada Grass atau tidak
+     * @param grass menandakan apakah ada Grass atau tidak
      */
     @Override
     public void setGrass(boolean grass) {

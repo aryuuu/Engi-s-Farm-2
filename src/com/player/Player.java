@@ -90,6 +90,7 @@ public class Player{
 
     /**
      * getter dari bag
+     * @param idx indeks dari bag tersebut
      * @return Product pada posisi idx dalam tas
      */
     public Product getBag(int idx)////mengambil Product yang ada dalam LinkedList Bag pada indeks idx
@@ -110,7 +111,7 @@ public class Player{
 
     /**
      * setter dari Water
-     * @param water
+     * @param water - jumlah air player yang ingin diset
      */
     public void setWater(int water) //mengubah nilai atribut water
     {
@@ -118,7 +119,7 @@ public class Player{
     }
     /**
      * setter dari Money
-     * @param money
+     * @param money - jumlah uang player yang ingin diset
      */
     public void setMoney(int money) //mengubah nilai atribut money
     {
@@ -126,7 +127,7 @@ public class Player{
     }
     /**
      * setter dari X
-     * @param x
+     * @param x - posisi baris player yang ingin diset
      */
     public void setX(int x) //mengubah nilai atribut x (posisi Absis player)
     {
@@ -135,7 +136,7 @@ public class Player{
 
     /**
      * setter dari Y
-     * @param y
+     * @param y - posisi kolom player yang ingin diset
      */
     public void setY(int y)//mengubah nilai atribut y (posisi Ordinat player)
     {
@@ -144,7 +145,7 @@ public class Player{
 
     /**
      * method pergerakan pemain
-     * @param move
+     * @param move - huruf yang melambangkan arah pergerakan player
      */
     public void playerMove(char move) //Memindahkan posisi player ke atas / kanan / bawah / kiri dengan parameter input charr u/r/d/l dan posisi harus valid (harus divalidasi dulu)
     {
@@ -181,7 +182,7 @@ public class Player{
 
     /**
      * Method untuk Menambahkan produk Prod
-     * @param Prod
+     * @param Prod - produk yang ingin ditambahkan ke bag player
      */
     public void addProduct(Product Prod) //Menambahkan Product Prod ke Bag dan ditaruh di paling belakang
     {
@@ -194,7 +195,7 @@ public class Player{
 
     /**
      * Method untuk menambahkan produk benama prod
-     * @param Prod
+     * @param Prod - nama produk yang ingin ditambahkan ke dalam bag player
      */
     public void addProduct(String Prod) //Menambahkan Nama Product Prod ke Bag dan ditaruh di paling belakang
     {
@@ -297,7 +298,7 @@ public class Player{
 
     /**
      * Method untuk menambah uang sebanyak harga
-     * @param harga
+     * @param harga - jumlah uang yang ingin ditambahkan ke player
      */
     public void addMoney(int harga) //Menambah atribut money sesuai dengan harga
     {
@@ -306,8 +307,8 @@ public class Player{
 
     /**
      * Method megecek posisi
-     * @param x
-     * @param y
+     * @param x - posisi baris
+     * @param y = posisi kolom
      * @return boolean True jika posisi tersebut merupakan tempat player
      */
     public boolean isValid(int x,int y) //Mengecek Posisi tersebut ditempati player atau tidak mengembalikan true jika posisi tersebut ditempati player
@@ -317,7 +318,7 @@ public class Player{
 
     /**
      * Method untuk mengecek apakah bisa membuat product
-     * @param productname
+     * @param productname - nama produk yang ingin dicek
      * @return boolean True jika productname bisa dibuat False jika tidak
      */
     public boolean isAvailable(String productname) //mengembalikan true jika SideProduct dengan nama productname bisa dibuat dengan inventori sekarang, false jika tidak

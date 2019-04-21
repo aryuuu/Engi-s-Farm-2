@@ -72,6 +72,7 @@ public class Product{
 	/**
      * method untuk membandingkan nama produk 
      * @param p yang merupakan produk yang akan dibandingkan dengan produk ini
+	 * @return true jika kedua pointer menunjuk ke produk yang sama
      */
 	public boolean samaDengan(Product p){
 		return this.nama == p.getNama();

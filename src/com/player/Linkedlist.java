@@ -46,7 +46,7 @@ public class Linkedlist<T> {
 
     /**
      * Method Penambahan element pada Linkedlist
-     * @param element
+     * @param element - elemen yang ditambahkan ke dalam LinkedList
      */
     public void add(T element) /*Menambahkan elemen sebagai elemen paling akhir*/
     {
@@ -55,7 +55,7 @@ public class Linkedlist<T> {
 
     /**
      * Method untuk menghapus elemen pada idx dalam Linkedlist
-     * @param idx
+     * @param idx - indeks yang ingin dihapus dari LinkedList
      */
     public void remove(int idx) /*Membuang elemen dari linked list*/
     {
@@ -64,7 +64,7 @@ public class Linkedlist<T> {
 
     /**
      * Method untuk mengambil elemen pada posisi indeks
-     * @param indeks
+     * @param indeks indeks elemen yang dicari
      * @return element T
      */
     public T get(int indeks) /*Mengembalikan elemen pada indeks*/
