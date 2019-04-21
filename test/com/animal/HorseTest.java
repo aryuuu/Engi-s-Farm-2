@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ChickenTest {
+class HorseTest {
 
-    Chicken ani = new Chicken(1, 1);
+    Horse ani = new Horse(1, 1);
 
     @Test
     void getLocation() {
@@ -53,46 +53,46 @@ class ChickenTest {
 
     @Test
     void animalType() {
-        assertEquals("Chicken", ani.animalType());
+        assertEquals("Horse", ani.animalType());
     }
 
     @Test
     void animalHabitat() {
-        assertEquals("Coop", ani.animalHabitat());
+        assertEquals("Grassland", ani.animalHabitat());
     }
 
     @Test
     void animalSound() {
-        assertEquals("Kukuruyuukkkk", ani.animalSound());
+        assertEquals("Ngiiiihhhh", ani.animalSound());
     }
 
     @Test
     void canProduceEgg() {
-        assertTrue(ani.canProduceEgg());
+        assertFalse(ani.canProduceEgg());
     }
 
     @Test
     void eggProduct() {
-        assertEquals("ChickenEgg", ani.eggProduct());
+        assertEquals("none", ani.eggProduct());
     }
 
     @Test
     void canProduceMeat() {
-        assertTrue(ani.canProduceMeat());
+        assertFalse(ani.canProduceMeat());
     }
 
     @Test
     void meatProduct() {
-        assertEquals("ChickenMeat", ani.meatProduct());
+        assertEquals("none", ani.meatProduct());
     }
 
     @Test
     void canProduceMilk() {
-        assertFalse(ani.canProduceMilk());
+        assertTrue(ani.canProduceMilk());
     }
 
     @Test
     void milkProduct() {
-        assertEquals("none", ani.milkProduct());
+        assertEquals("HorseMilk", ani.milkProduct());
     }
 }

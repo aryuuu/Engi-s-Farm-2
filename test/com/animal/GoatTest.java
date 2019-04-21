@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ChickenTest {
+class GoatTest {
 
-    Chicken ani = new Chicken(1, 1);
+    Goat ani = new Goat(1, 1);
 
     @Test
     void getLocation() {
@@ -53,37 +53,37 @@ class ChickenTest {
 
     @Test
     void animalType() {
-        assertEquals("Chicken", ani.animalType());
+        assertEquals("Goat", ani.animalType());
     }
 
     @Test
     void animalHabitat() {
-        assertEquals("Coop", ani.animalHabitat());
+        assertEquals("Barn", ani.animalHabitat());
     }
 
     @Test
     void animalSound() {
-        assertEquals("Kukuruyuukkkk", ani.animalSound());
+        assertEquals("Mbeeeeeeeeeeekk", ani.animalSound());
     }
 
     @Test
     void canProduceEgg() {
-        assertTrue(ani.canProduceEgg());
+        assertFalse(ani.canProduceEgg());
     }
 
     @Test
     void eggProduct() {
-        assertEquals("ChickenEgg", ani.eggProduct());
+        assertEquals("none", ani.eggProduct());
     }
 
     @Test
     void canProduceMeat() {
-        assertTrue(ani.canProduceMeat());
+        assertFalse(ani.canProduceMeat());
     }
 
     @Test
     void meatProduct() {
-        assertEquals("ChickenMeat", ani.meatProduct());
+        assertEquals("none", ani.meatProduct());
     }
 
     @Test
