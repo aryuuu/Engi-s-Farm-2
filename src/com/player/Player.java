@@ -60,12 +60,12 @@ public class Player{
     public int getWater() //mengambil atribut water
     {
         return water;
-    
+
     }
 
     /**
      * getter dari uang
-     * @return uang dari pemain
+     * @return money yang merupakan uang dari pemain
      */
     public int getMoney()//mengambil atribut money
     {
@@ -73,7 +73,7 @@ public class Player{
     }
     /**
      * getter dari x
-     * @return posisi baris dari pemain
+     * @return x merupakan posisi baris dari pemain
      */
     public int getX()//mengambil atribut x (posisi Absis player)
     {
@@ -81,7 +81,7 @@ public class Player{
     }
     /**
      * getter dari y
-     * @return posisi kolom dari pemain
+     * @return y merupakan posisi kolom dari pemain
      */
     public int getY()//mengambil atribut y (posisi Ordinat player)
     {
@@ -90,8 +90,8 @@ public class Player{
 
     /**
      * getter dari bag
-     * @param idx indeks dari bag tersebut
-     * @return Product pada posisi idx dalam tas
+     * @param idx yang merupakan indeks posisi tas
+     * @return bag.get(idx) Product pada posisi idx dalam tas
      */
     public Product getBag(int idx)////mengambil Product yang ada dalam LinkedList Bag pada indeks idx
     {
@@ -100,7 +100,7 @@ public class Player{
 
     /**
      * getter dari ukuran tas
-     * @return ukuran tas
+     * @return bag.size() yang merupakan ukuran tas
      */
     public int getSizeBag() //Menghitung ukuran tas
     {
@@ -111,7 +111,7 @@ public class Player{
 
     /**
      * setter dari Water
-     * @param water - jumlah air player yang ingin diset
+     * @param water yang merupakan banyaknya air yang diset
      */
     public void setWater(int water) //mengubah nilai atribut water
     {
@@ -119,7 +119,7 @@ public class Player{
     }
     /**
      * setter dari Money
-     * @param money - jumlah uang player yang ingin diset
+     * @param money yang merupakan uang dari pemain
      */
     public void setMoney(int money) //mengubah nilai atribut money
     {
@@ -127,7 +127,7 @@ public class Player{
     }
     /**
      * setter dari X
-     * @param x - posisi baris player yang ingin diset
+     * @param x yang merupakan posisi baris
      */
     public void setX(int x) //mengubah nilai atribut x (posisi Absis player)
     {
@@ -136,7 +136,7 @@ public class Player{
 
     /**
      * setter dari Y
-     * @param y - posisi kolom player yang ingin diset
+     * @param y yang meerupakan posisi kolom
      */
     public void setY(int y)//mengubah nilai atribut y (posisi Ordinat player)
     {
@@ -145,7 +145,7 @@ public class Player{
 
     /**
      * method pergerakan pemain
-     * @param move - huruf yang melambangkan arah pergerakan player
+     * @param move merupakan karakter pergerakan pemain
      */
     public void playerMove(char move) //Memindahkan posisi player ke atas / kanan / bawah / kiri dengan parameter input charr u/r/d/l dan posisi harus valid (harus divalidasi dulu)
     {
@@ -182,7 +182,7 @@ public class Player{
 
     /**
      * Method untuk Menambahkan produk Prod
-     * @param Prod - produk yang ingin ditambahkan ke bag player
+     * @param Prod merupakan produk yang ditambahkan
      */
     public void addProduct(Product Prod) //Menambahkan Product Prod ke Bag dan ditaruh di paling belakang
     {
@@ -195,7 +195,7 @@ public class Player{
 
     /**
      * Method untuk menambahkan produk benama prod
-     * @param Prod - nama produk yang ingin ditambahkan ke dalam bag player
+     * @param Prod merupakan nama produk yang ditambahkan
      */
     public void addProduct(String Prod) //Menambahkan Nama Product Prod ke Bag dan ditaruh di paling belakang
     {
@@ -249,7 +249,6 @@ public class Player{
                 while(idxResep < X.getNResep()){ //hapus bahan dari inventori
                     for (int i = 1; i <= getSizeBag(); i++)
                     {
-                        System.out.println(i);
                         if (getBag(i).getNama().equals(X.getResep(idxResep)))
                         {
                             bag.remove(i);
@@ -257,7 +256,6 @@ public class Player{
                         }
                     }
                     idxResep++;
-                    //System.out.println(idxResep);
                 }
 
                 this.addProduct(X);
@@ -298,7 +296,7 @@ public class Player{
 
     /**
      * Method untuk menambah uang sebanyak harga
-     * @param harga - jumlah uang yang ingin ditambahkan ke player
+     * @param harga merupakan uang yang ditambahakan
      */
     public void addMoney(int harga) //Menambah atribut money sesuai dengan harga
     {
@@ -307,8 +305,8 @@ public class Player{
 
     /**
      * Method megecek posisi
-     * @param x - posisi baris
-     * @param y = posisi kolom
+     * @param x posisi kolom
+     * @param y posisi baris
      * @return boolean True jika posisi tersebut merupakan tempat player
      */
     public boolean isValid(int x,int y) //Mengecek Posisi tersebut ditempati player atau tidak mengembalikan true jika posisi tersebut ditempati player
@@ -318,7 +316,7 @@ public class Player{
 
     /**
      * Method untuk mengecek apakah bisa membuat product
-     * @param productname - nama produk yang ingin dicek
+     * @param productname yang merupakan nama produk
      * @return boolean True jika productname bisa dibuat False jika tidak
      */
     public boolean isAvailable(String productname) //mengembalikan true jika SideProduct dengan nama productname bisa dibuat dengan inventori sekarang, false jika tidak
@@ -381,10 +379,10 @@ public class Player{
             int idxbag;
             // int count = 0; //hitung jumlah bahan resep yang sudah ditemukan
             boolean found = false; //flag yang bernilai true jika bahan ditemukan
-            while(idxResep < mb.getNResep()){
+            while(idxResep < mb.getNResep() && !found){
                 idxbag = 1;
                 found = false;//inisialisasi
-                while(idxbag <= this.getSizeBag() && !found){
+                while(idxbag <= this.getSizeBag()){
                     if(this.getBag(idxbag).getNama() == mb.getResep(idxResep)){//jika produk ditemukan
                         //		idxbag = this.getSizeBag(); //skip loop
                         // count++;
@@ -416,7 +414,7 @@ public class Player{
         System.out.print("Water	: ");
         System.out.println(this.getWater());
         System.out.print("bag	    : ");
-        
+
         for(int i=1;i<=this.getSizeBag();i++){
             System.out.print(this.getBag(i).getNama());
             if(i!=this.getSizeBag()){
