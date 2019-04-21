@@ -1,6 +1,6 @@
 package com.player;
 /**
- * file Meatball.java
+ * file ButtermilkChicken.java
  * <p>
  *     Kelas yang merepresentasikan produk yang didapat setelah player mengolah CowMilk dan ChickenMeat
  * </p>

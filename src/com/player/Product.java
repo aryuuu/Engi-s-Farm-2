@@ -23,9 +23,11 @@ public class Product{
      */
 	protected int harga;
 
-	 /**
-     * Konstruktor dari class Product
-     */
+	/**
+	 * Kontruktor class Product
+	 * @param nama merupakan nama dari produk
+	 * @param harga merupakan harga dari produk
+	 */
 	public Product(String nama, int harga){
 		assert(harga > 0);
 		this.nama = nama;
@@ -53,7 +55,7 @@ public class Product{
 
     /**
      * setter dari nama
-     * @param nama
+     * @param nama yang merupakan nama dari produk
      */
 	public void setNama(String nama) {
 		this.nama = nama;
@@ -61,7 +63,7 @@ public class Product{
 
 	/**
      * setter dari harga
-     * @param harga
+     * @param harga yang merupakan harga dari produk
      */
 	public void setHarga(int harga) {
 		this.harga = harga;
@@ -69,7 +71,7 @@ public class Product{
 
 	/**
      * method untuk membandingkan nama produk 
-     * @param p
+     * @param p yang merupakan produk yang akan dibandingkan dengan produk ini
      */
 	public boolean samaDengan(Product p){
 		return this.nama == p.getNama();
